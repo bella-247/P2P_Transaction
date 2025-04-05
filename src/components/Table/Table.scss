@@ -1,0 +1,69 @@
+.table-container{
+    width: clamp(500px, 100%, 750px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .filter-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem 0;
+        label{
+            font-size: 0.9rem;
+        }
+        select#status-filter{
+            width: 200px;
+            padding: 0.5rem;
+            outline: 1px solid white;
+            border-radius: 0.25rem;
+            &:focus-visible{
+                outline: 2px solid white;
+            }
+        }
+    }
+    table{
+        width: 100%;
+        a{
+            color: inherit;
+            &:hover{
+                color: lightblue;
+                text-decoration: underline;
+            }
+        }
+        tr{
+            display: grid;
+            grid-template-columns: 50px repeat(4, minmax(125px, 1fr));
+            th, td{
+                display: flex;
+                justify-content: center;
+                border: 1.5px solid #fff5;
+                padding: 0.75rem;
+            }
+            th{
+                background-color: #fff;
+                color: black;
+            }
+            td{
+                &.status{
+                    span{
+                        width: clamp(100px, 90%, 100px);
+                        padding: 0.25rem 1rem;
+                        display: flex;
+                        justify-content: center;
+                        border-radius: 0.25rem;
+                        &.Completed{
+                            background-color: green;
+                        }
+                        &.Pending{
+                            background-color: #d80;
+                        }
+                        &.Failed{
+                            background-color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

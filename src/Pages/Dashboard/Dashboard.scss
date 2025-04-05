@@ -1,0 +1,52 @@
+header#dashboard{
+    padding: 1rem 1rem;
+    min-width: 100%;
+    nav{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        #create-transaction-btn{
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-color: #666;
+            &:focus-visible{
+                outline: 2px solid white;
+            }
+            &:hover{
+                background-color: #7f7f7f;
+            }
+            &:active{
+                background-color: #757575;
+            }
+        }
+    }
+}
+
+main#dashboard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    section{
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &#hero{
+            gap: 0rem;
+            p{
+                text-align: center;
+                span{
+                    font-weight: bolder;
+                }
+            }
+        }
+        &#transactions{
+            min-width: fit-content;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "transactions": [
+        {
+            "id": 1,
+            "sender": "Abel",
+            "receiver": "Mekonnen",
+            "amount": 150,
+            "status": "Pending"
+        },
+        {
+            "id": 2,
+            "sender": "Liya",
+            "receiver": "Noah",
+            "amount": 300,
+            "status": "Completed"
+        },
+        {
+            "id": 3,
+            "sender": "Daniel",
+            "receiver": "Sara",
+            "amount": 500,
+            "status": "Failed"
+        },
+        {
+            "id": 4,
+            "sender": "Hanna",
+            "receiver": "Elias",
+            "amount": 200,
+            "status": "Completed"
+        },
+        {
+            "id": 5,
+            "sender": "Samuel",
+            "receiver": "Helen",
+            "amount": 100,
+            "status": "Pending"
+        },
+        {
+            "id": 6,
+            "sender": "Amanuel",
+            "receiver": "Biniyam",
+            "amount": 250,
+            "status": "Completed"
+        },
+        {
+            "id": 7,
+            "sender": "Marta",
+            "receiver": "Robel",
+            "amount": 350,
+            "status": "Failed"
+        },
+        {
+            "id": 8,
+            "sender": "Elena",
+            "receiver": "Nathan",
+            "amount": 50,
+            "status": "Completed"
+        },
+        {
+            "id": 9,
+            "sender": "Chris",
+            "receiver": "Sophia",
+            "amount": 400,
+            "status": "Pending"
+        },
+        {
+            "id": 10,
+            "sender": "David",
+            "receiver": "Betty",
+            "amount": 600,
+            "status": "Completed"
+        }
+    ]
+}
