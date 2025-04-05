@@ -1,4 +1,39 @@
 main#transaction-details{
     padding : 1rem;
-    border: 2px solid white;
+    .transaction-detail-container{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+        .transaction-detail{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            border: 2px solid;
+            padding : 2rem 3rem;
+            padding-left: 1rem;
+            border-radius: 0.5rem;
+            background: white;
+            p{
+                color: black;
+                font-size:large;
+                span.key{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
 }
+.error-message, .loading-message{
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+.error-message{
+    color: red;
+}
+
+.loading-message{
+    color: blue;
+}
+

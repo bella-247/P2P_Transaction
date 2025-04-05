@@ -1,17 +1,8 @@
-import { useState, useContext, useEffect } from "react";
 import Table from "../../components/Table/Table";
-import useTransaction from "../../Hooks/useTransaction";
-import { TransactionContext } from "../../Contexts/TransactionContext";
 import "./Dashboard.css";
 
 const Dashboard = () => {
-    const { getTransactions } = useTransaction();
-    const { transactions } = useContext(TransactionContext);
 
-
-    useEffect(() => {
-        getTransactions();
-    }, []);
 
     return (
         <>
@@ -33,7 +24,7 @@ const Dashboard = () => {
                     </p>
                 </section>
                 <section id="transactions">
-                    <Table transactions={transactions} />
+                    <Table/>
                 </section>
             </main>
         </>

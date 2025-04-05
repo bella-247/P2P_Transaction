@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router";
 import useTransaction from "../../hooks/useTransaction";
 import "./TransactionDetail.css";
 
@@ -14,14 +14,31 @@ const TransactionDetail = () => {
         });
     }, []);
 
+    const capitalize = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+
     return (
         <>
             {loading && <p className="loading-message">Loading </p>}
             {error && <p className="error-message">{error}</p>}
             {transaction && (
                 <main id="transaction-details">
+                    <Link to="/">Go Back</Link>
                     <h1>Transaction Details</h1>
-                    <div>Transaction Detail for transaction{id}</div>
+                    <div className="transaction-detail-container">
+                        <div className="transaction-detail">
+                            {Object.keys(transaction).map((key, index) => {
+                                return (
+                                    <p key={index}>
+                                        <span className="key">{capitalize(key)}</span> :{" "}
+                                        <span className="value"></span>
+                                        {transaction[key]}
+                                    </p>
+                                );
+                            })}
+                        </div>
+                    </div>
                 </main>
             )}
         </>

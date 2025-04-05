@@ -16,13 +16,10 @@ const useTransactions = ()=>{
                 setError(null)
                 return response.data;
             }
-            else{
-                throw Error("Failed to fetch the Transaction");
-            }
         }
         catch(err){
             console.error(err);
-            setError(err)
+            setError(err?.data?.message || "Couldn't fetch the transactions")
         }
         finally{
             setLoading(false)
@@ -38,13 +35,10 @@ const useTransactions = ()=>{
                 console.log("i got the transactions", response.data)
                 setError(null)
             }
-            else{
-                throw Error("Failed to fetch the Transactions");
-            }
         }
         catch(err){
             console.error(err);
-            setError(err)
+            setError(err.response?.data?.message || err.message || "Couldn't fetch the transactions");
         }
         finally{
             setLoading(false)
@@ -59,13 +53,11 @@ const useTransactions = ()=>{
                 setError(null)
                 setTransactions((prev)=>[...prev, data]);
             }
-            else{
-                throw Error("Failed to add the Transaction");
-            }
         }
         catch(err){
             console.error(err);
-            setError(err)
+            setError(err?.message?.data?.message || err?.message || "Couldn't add the transaction")
+            
         }
         finally{
             setLoading(false)
