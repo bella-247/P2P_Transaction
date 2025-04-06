@@ -29,7 +29,7 @@ const CreateTransaction = ({setCreatingTransaction}) => {
                     <label htmlFor="reciver">Reciever</label>
                 </div>
                 <div className="form-group">
-                    <input type="number" name="amount" id="amount" onChange={handleChange} required/>
+                    <input type="number" name="amount" id="amount" onChange={handleChange} min="1" required/>
                     <label htmlFor="amount">Amount</label>
                 </div>
 
