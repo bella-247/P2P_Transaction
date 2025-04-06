@@ -4,6 +4,7 @@ import useTransaction from "../../hooks/useTransaction";
 import "./TransactionDetail.css";
 
 const TransactionDetail = () => {
+    document.title = "Transaction Detail";
     const { error, loading, getTransaction } = useTransaction();
     const { id } = useParams();
     const [transaction, setTransaction] = useState(null);

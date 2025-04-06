@@ -45,7 +45,7 @@ const useTransactions = ()=>{
         }
     }
     
-    const addTransaction = async (data)=>{
+    const createTransaction = async (data)=>{
         try{
             setLoading(true)
             const response = await axios.post(apiUrl, data)
@@ -69,7 +69,7 @@ const useTransactions = ()=>{
         error,
         getTransaction,
         getTransactions,
-        addTransaction
+        createTransaction
     }
 }
 

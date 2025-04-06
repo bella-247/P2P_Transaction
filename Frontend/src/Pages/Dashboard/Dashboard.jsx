@@ -1,17 +1,22 @@
 import Table from "../../components/Table/Table";
 import "./Dashboard.css";
+import CreateTransaction from "../../components/CreateTransaction/CreateTransaction";
+import { useState } from "react";
 
 const Dashboard = () => {
-
+    document.title = "Dashboard";
+    const [creatingTransaction, setCreatingTransaction] = useState(false);
 
     return (
         <>
+            {creatingTransaction && <CreateTransaction setCreatingTransaction = {setCreatingTransaction}/>}
             <header id="dashboard">
               <nav>
-                <button id="create-transaction-btn">Create Transaction</button>
+                <button id="create-transaction-btn" onClick={() => setCreatingTransaction(true)}>Create Transaction</button>
               </nav>
             </header>
             <main id="dashboard">
+
                 <section id="hero">
                     <h1>P2P Transaction Dashboard</h1>
                     <p>

@@ -55,10 +55,6 @@ const Table = () => {
                         <table>
                             <thead>
                                 <tr>
-                                    {/* {headers &&
-                                        headers.map((header, index) => {
-                                            return <th key={index}>{header}</th>;
-                                        })} */}
                                     {Object.keys(tableTransactions[0]).map(
                                         (name, index) => {
                                             return <th key={index}>{capitalize(name)}</th>;
