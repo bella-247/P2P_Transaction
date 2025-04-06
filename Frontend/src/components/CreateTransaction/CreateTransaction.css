@@ -5,7 +5,7 @@
   display: flex;
   place-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3333333333);
+  background-color: rgba(255, 255, 255, 0.1333333333);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   animation: animate-entry 0.5s ease-in-out;
@@ -31,7 +31,7 @@
   gap: 1rem;
   padding: 1.5rem 1.5rem 3rem;
   border-radius: 0.5rem;
-  background-color: #555;
+  background-color: #333;
   color: white;
 }
 .transaction-creator-form-container form .form-group {
@@ -45,7 +45,8 @@
 .transaction-creator-form-container form .form-group input, .transaction-creator-form-container form .form-group select {
   padding: 0.35rem 0.75rem;
   border-radius: 0.25rem;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #e9ede9;
+  color: black;
 }
 .transaction-creator-form-container form .form-group input:required + label::after, .transaction-creator-form-container form .form-group select:required + label::after {
   content: "*";
