@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useContext, useState } from 'react';
 import { TransactionContext } from '../Contexts/TransactionContext';
-const apiUrl = "http://localhost:5000/transactions";
+const apiUrl = "http://127.0.0.1:9000/transactions";
 
 const useTransactions = ()=>{
     const {setTransactions} = useContext(TransactionContext);
