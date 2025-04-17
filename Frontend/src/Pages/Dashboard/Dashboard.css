@@ -5,7 +5,29 @@ header#dashboard {
 header#dashboard nav {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+header#dashboard nav .user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+header#dashboard nav .user-profile .profile-img-container {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+header#dashboard nav .user-profile .profile-img-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+header#dashboard nav .user-profile .profile-img-container p {
+  color: white;
 }
 header#dashboard nav #create-transaction-btn {
   padding: 0.5rem 1rem;
@@ -47,6 +69,7 @@ main#dashboard section#hero p span {
   font-weight: bolder;
 }
 main#dashboard section#transactions {
+  position: relative;
   min-width: -moz-fit-content;
   min-width: fit-content;
   width: 100%;

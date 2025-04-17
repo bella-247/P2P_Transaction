@@ -20,6 +20,12 @@ class User(models.Model):
             'updated_at': self.updated_at
         }
         
+    def __repr__(self):
+        return f"<User {self.name} {self.email}>"
+        
+    def __str(self):
+        return f"<User {self.name} {self.email}>"
+        
     
 class Transaction(models.Model):
     class Status(models.IntegerChoices):
@@ -28,14 +34,14 @@ class Transaction(models.Model):
         Failed = 3, "Failed"
         
     class PaymentMethod(models.IntegerChoices):
-        Cash = 1, 
-        Card = 2,
-        Mobile = 3,
-        Online = 4,
+        Cash = 1, "Cash" 
+        Card = 2, "Card" 
+        Mobile = 3, "Mobile" 
+        Online = 4, "Online" 
         
     class TransactionType(models.IntegerChoices):
-        Payment = 1,
-        Loan = 2
+        Payment = 1, "Payment" 
+        Loan = 2, "Loan" 
     
     sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name = "sent_transactions")
     reciever = models.ForeignKey(User, on_delete=models.CASCADE, related_name = "recieved_transactions")
@@ -52,9 +58,15 @@ class Transaction(models.Model):
             "sender" : self.sender.name,
             "reciever" : self.reciever.name,
             "amount" : self.amount,
-            "status" : self.status,
-            "transaction_type" : self.transaction_type,
-            "payment_method" : self.payment_method,
+            "status" : self.get_status_display(),
+            "transaction_type" : self.get_transaction_type_display(),
+            "payment_method" : self.get_payment_method_display(),
             "created_at" : self.created_at,
             "updated_at" : self.updated_at
         }
+        
+    def __repr__(self):
+        return f"<Transaction from {self.sender.name} to {self.reciever.name} {self.amount}>"
+        
+    def __str__(self):
+        return f"<Transaction from {self.sender.name} to {self.reciever.name} {self.amount}>"

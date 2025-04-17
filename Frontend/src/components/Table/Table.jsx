@@ -1,37 +1,46 @@
 import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router";
-import "./Table.css";
 import { TransactionContext } from "../../Contexts/TransactionContext";
 import useTransactions from "../../hooks/useTransaction";
+import "./Table.css";
+import PageLoader from "../PageLoader/PageLoader";
 
 const Table = () => {
+    const navigate = useNavigate();
     const [tableTransactions, setTableTransactions] = useState([]);
     const [filterValue, setFilterValue] = useState("All");
 
     const { loading, error, getTransactions } = useTransactions();
     const { transactions } = useContext(TransactionContext);
 
+    const table_headers = ["id", "sender", "reciever", "amount", "status"];
+
     useEffect(() => {
         getTransactions();
     }, []);
 
-    useEffect(()=>{
-        let filteredTransactions = transactions.filter(transaction=>{
-            return filterValue == "All" || transaction.status === filterValue ? transaction : null;
+    useEffect(() => {
+        let filteredTransactions = transactions.filter((transaction) => {
+            return filterValue == "All" || transaction.status === filterValue
+                ? transaction
+                : null;
         });
 
         setTableTransactions(filteredTransactions);
-    }, [transactions, filterValue])
+    }, [transactions, filterValue]);
 
-
+    const handleRowClick = (id)=>{
+        navigate(`/transaction/${id}`);
+    }
 
     const capitalize = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
 
+
     return (
         <>
-            {loading && <p>Loading...</p>}
+            {loading && <PageLoader />}
             {error && <p>{error}</p>}
             {!loading && !error && (
                 <div className="table-container">
@@ -55,24 +64,27 @@ const Table = () => {
                         <table>
                             <thead>
                                 <tr>
-                                    {Object.keys(tableTransactions[0]).map(
-                                        (name, index) => {
-                                            return <th key={index}>{capitalize(name)}</th>;
-                                        }
-                                )}
+                                    {table_headers.map((name, index) => {
+                                        return (
+                                            <th key={index}>
+                                                {capitalize(name)}
+                                            </th>
+                                        );
+                                    })}
                                 </tr>
                             </thead>
 
                             <tbody>
                                 {tableTransactions &&
-                                    tableTransactions.map((transaction, tr_index) => {
-                                        return (
-                                            <Link to={`/transaction/${transaction.id}`} key={tr_index}>
+                                    tableTransactions.map(
+                                        (transaction, tr_index) => {
+                                            return (
                                                 <tr
                                                     key={tr_index}
                                                     data-id={transaction.id}
+                                                    onClick={()=>handleRowClick(transaction.id)}
                                                 >
-                                                    {Object.keys(transaction).map(
+                                                    {table_headers.map(
                                                         (name, index) => {
                                                             return (
                                                                 <td
@@ -80,26 +92,18 @@ const Table = () => {
                                                                     className={name}
                                                                 >
                                                                     <span
-                                                                        className={
-                                                                            transaction[
-                                                                                name
-                                                                            ]
-                                                                        }
+                                                                        className={transaction[name]}
                                                                     >
-                                                                        {
-                                                                            transaction[
-                                                                                name
-                                                                            ]
-                                                                        }
+                                                                        {transaction[name]}
                                                                     </span>
                                                                 </td>
                                                             );
                                                         }
                                                     )}
                                                 </tr>
-                                            </Link>
-                                        );
-                                    })}
+                                            );
+                                        }
+                                    )}
                             </tbody>
                         </table>
                     ) : (

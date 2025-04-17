@@ -26,40 +26,45 @@
 .table-container table {
   width: 100%;
 }
-.table-container table a {
-  color: inherit;
-}
-.table-container table a:hover {
-  color: lightblue;
-  text-decoration: underline;
-}
-.table-container table tr {
+.table-container table thead tr {
   display: grid;
   grid-template-columns: 50px repeat(4, minmax(125px, 1fr));
 }
-.table-container table tr th, .table-container table tr td {
+.table-container table thead tr th {
+  display: flex;
+  justify-content: center;
+  border: 1.5px solid rgba(255, 255, 255, 0.3333333333);
+  padding: 0.75rem;
+  background-color: #fff;
+  color: black;
+}
+.table-container table tbody tr {
+  display: grid;
+  grid-template-columns: 50px repeat(4, minmax(125px, 1fr));
+  cursor: pointer;
+}
+.table-container table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.1333333333);
+}
+.table-container table tbody tr td {
   display: flex;
   justify-content: center;
   border: 1.5px solid rgba(255, 255, 255, 0.3333333333);
   padding: 0.75rem;
 }
-.table-container table tr th {
-  background-color: #fff;
-  color: black;
-}
-.table-container table tr td.status span {
+.table-container table tbody tr td.status span {
   width: clamp(100px, 90%, 100px);
   padding: 0.25rem 1rem;
   display: flex;
   justify-content: center;
   border-radius: 0.25rem;
 }
-.table-container table tr td.status span.Completed {
+.table-container table tbody tr td.status span.Completed {
   background-color: green;
 }
-.table-container table tr td.status span.Pending {
+.table-container table tbody tr td.status span.Pending {
   background-color: #d80;
 }
-.table-container table tr td.status span.Failed {
+.table-container table tbody tr td.status span.Failed {
   background-color: red;
 }/*# sourceMappingURL=Table.css.map */

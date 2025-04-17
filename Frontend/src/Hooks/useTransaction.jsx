@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useContext, useState } from 'react';
 import { TransactionContext } from '../Contexts/TransactionContext';
-const apiUrl = "http://127.0.0.1:9000/transactions";
+const apiUrl = "http://127.0.0.1:9000/transactions/";
 
 const useTransactions = ()=>{
     const {setTransactions} = useContext(TransactionContext);
@@ -11,7 +11,8 @@ const useTransactions = ()=>{
     const getTransaction = async (id)=>{
         try{
             setLoading(true)
-            const response = await axios.get(`${apiUrl}/${id}`);
+            const response = await axios.get(`${apiUrl}${id}`);
+            console.log(response)
             if(response && response.data){
                 setError(null)
                 return response.data;
@@ -30,11 +31,17 @@ const useTransactions = ()=>{
         try{
             setLoading(true)
             const response = await axios.get(apiUrl);
-            if(response && response.data){
-                setTransactions(response.data);
-                console.log("i got the transactions", response.data)
-                setError(null)
-            }
+            console.log(response)
+            return await new Promise(resolve=>{
+                setTimeout(()=>{
+                    if(response && response.data){
+                        setTransactions(response.data);
+                        console.log("i got the transactions", response.data)
+                        setError(null)
+                    }
+                    resolve(response.data)
+                }, 2000)
+            })
         }
         catch(err){
             console.error(err);

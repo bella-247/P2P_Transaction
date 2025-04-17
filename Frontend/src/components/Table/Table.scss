@@ -24,42 +24,50 @@
     }
     table{
         width: 100%;
-        a{
-            color: inherit;
-            &:hover{
-                color: lightblue;
-                text-decoration: underline;
+        thead{
+            tr{
+                display: grid;
+                grid-template-columns: 50px repeat(4, minmax(125px, 1fr));
+                th{
+                    display: flex;
+                    justify-content: center;
+                    border: 1.5px solid #fff5;
+                    padding: 0.75rem;
+                    background-color: #fff;
+                    color: black;
+                }
             }
         }
-        tr{
-            display: grid;
-            grid-template-columns: 50px repeat(4, minmax(125px, 1fr));
-            th, td{
-                display: flex;
-                justify-content: center;
-                border: 1.5px solid #fff5;
-                padding: 0.75rem;
-            }
-            th{
-                background-color: #fff;
-                color: black;
-            }
-            td{
-                &.status{
-                    span{
-                        width: clamp(100px, 90%, 100px);
-                        padding: 0.25rem 1rem;
-                        display: flex;
-                        justify-content: center;
-                        border-radius: 0.25rem;
-                        &.Completed{
-                            background-color: green;
-                        }
-                        &.Pending{
-                            background-color: #d80;
-                        }
-                        &.Failed{
-                            background-color: red;
+
+        tbody{
+            tr{
+                display: grid;
+                grid-template-columns: 50px repeat(4, minmax(125px, 1fr));
+                cursor: pointer;
+                &:hover{
+                    background-color: #fff2;
+                }
+                td{
+                    display: flex;
+                    justify-content: center;
+                    border: 1.5px solid #fff5;
+                    padding: 0.75rem;
+                    &.status{
+                        span{
+                            width: clamp(100px, 90%, 100px);
+                            padding: 0.25rem 1rem;
+                            display: flex;
+                            justify-content: center;
+                            border-radius: 0.25rem;
+                            &.Completed{
+                                background-color: green;
+                            }
+                            &.Pending{
+                                background-color: #d80;
+                            }
+                            &.Failed{
+                                background-color: red;
+                            }
                         }
                     }
                 }
